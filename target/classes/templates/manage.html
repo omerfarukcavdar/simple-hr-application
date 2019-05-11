@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" th:action="@{/jobList/saveJob}" th:object="${jobRegister}">
+    Job Title:<br>
+    <input type="text" th:field="*{jobTitle}"><br>
+    Job Description:<br>
+    <input type="text" th:field="*{jobDescription}"><br>
+    Number Of People To Hire:<br>
+    <input type="text" th:field="*{numberOfPeopleToHire}"><br>
+
+    <input type="submit" value="Submit">
+</form>
+<br/>
+<div class="col-12">
+    <table class="table table-bordered">
+        <tr>
+            <th>Job Title </th>
+            <th>Job Description </th>
+            <th>Number Of People To Hire </th>
+            <th>Last Application Date </th>
+            <th>Operation</th>
+        </tr>
+        <tr th:each="job : ${allJobs}" th:object="${job}">
+            <td th:text="*{jobTitle} "></td>
+            <td th:text="*{jobDescription} "></td>
+            <td th:text="*{numberOfPeopleToHire} "></td>
+            <td th:text="*{lastApplicationDate} "></td>
+            <a th:href="@{/jobList/edit/{id}(id=${job.jobId})}">Edit Job</a>
+            <a th:href="@{/jobList/delete/{id}(id=${job.jobId})}">Delete Job</a>
+            <a th:href="@{/jobList/details/{id}(id=${job.jobId})}">See Details</a>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

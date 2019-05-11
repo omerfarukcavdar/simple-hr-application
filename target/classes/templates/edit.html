@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:object="${editJob}" th:action="@{/jobList/editJob}" method="post">
+    Job Title : </br>
+    <input type="text" th:field="*{jobTitle}" th:value="*{jobTitle}"/></br>
+    Job Description : </br>
+    <input type="text" th:field="*{jobDescription}" th:value="*{jobDescription}"/></br>
+    Number Of People To Hire</br>
+    <input type="text" th:field="*{numberOfPeopleToHire}" th:value="*{numberOfPeopleToHire}"/>
+    <input type="hidden" th:field="*{jobId}" th:value="*{jobId}"/>
+    <input type="hidden" th:field="*{lastApplicationDate}" th:value="*{lastApplicationDate}"/>
+
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>

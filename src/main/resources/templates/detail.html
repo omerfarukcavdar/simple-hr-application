@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="col-12">
+    <table class="table table-bordered">
+        <tr>
+            <th>Name </th>
+            <th>Email </th>
+            <th>Phone </th>
+            <th>Address</th>
+            <th>Thoughts On Job</th>
+        </tr>
+        <tr th:each="applicant : ${allApplicants}" th:object="${applicant}">
+            <td th:text="*{name} "></td>
+            <td th:text="*{email} "></td>
+            <td th:text="*{phone} "></td>
+            <td th:text="*{address} "></td>
+            <td th:text="*{thoughtsOnJob} "></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

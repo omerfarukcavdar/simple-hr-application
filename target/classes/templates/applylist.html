@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<br/>
+<div class="col-12">
+    <table class="table table-bordered">
+        <tr>
+            <th>Job Title </th>
+            <th>Job Description </th>
+            <th>Number Of People To Hire </th>
+            <th>Last Application Date </th>
+            <th>Operation</th>
+        </tr>
+        <tr th:each="job : ${allJobs}" th:object="${job}">
+            <td th:text="*{jobTitle} "></td>
+            <td th:text="*{jobDescription} "></td>
+            <td th:text="*{numberOfPeopleToHire} "></td>
+            <td th:text="*{lastApplicationDate} "></td>
+            <a th:href="@{/jobList/applyJob/{id}(id=${job.jobId})}">Apply Job</a>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

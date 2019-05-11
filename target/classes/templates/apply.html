@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Hello World!</title>
+</head>
+<body>
+<form method="post" th:action="@{/jobList/applyJob}" th:object="${applicantRegister}">
+    Name:<br>
+    <input type="text" th:field="*{name}"><br>
+    Email:<br>
+    <input type="text" th:field="*{email}"><br>
+    Phone:<br>
+    <input type="text" th:field="*{phone}"><br>
+    Address:<br>
+    <input type="text" th:field="*{address}"><br>
+    Thoughts On Job:<br>
+    <input type="text" th:field="*{thoughtsOnJob}"><br>
+
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>
